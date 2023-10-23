@@ -5,6 +5,7 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Button from "./Button";
+import useAuthModal from "@/hooks/useAuthModal";
 interface HeaderProps {
   children: React.ReactNode;
   className?: string;
@@ -12,6 +13,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const router = useRouter();
 
+  const authModal = useAuthModal();
   const handleLogout = () => {
     //!Handle Logout functionality
   };
@@ -87,13 +89,13 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <>
             <div>
 
-              <Button className="bg-transparent text-neutral-300 font-medium" onClick={()=>{}}>
+              <Button className="bg-transparent text-neutral-300 font-medium" onClick={authModal.onOpen}>
                 Sign Up
               </Button>
             </div>
             <div>
 
-              <Button className="bg-white text px-6 py-2" onClick={()=>{}}>
+              <Button className="bg-white text px-6 py-2" onClick={authModal.onOpen}>
                 Log In
               </Button>
             </div>
