@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import Image from "next/image";
-import image  from '../public/images/liked.png'
-export default function Home() {
+import image from "../public/images/liked.png";
+import getSong from "@/actions/getSongs";
+import PageContent from "@/components/PageContent";
+
+export default async function Home() {
+  const revaluate = 0;
+  const songs = await getSong()
   return (
     <div
       className="bg-neutral-900
@@ -27,17 +32,18 @@ export default function Home() {
           "
           >
             <ListItem
-             image='/images/liked.png' href="liked" name="Liked Songs"
+              image="/images/liked.png"
+              href="liked"
+              name="Liked Songs"
             />
           </div>
         </div>
       </Header>
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-white font-semibold text-2xl">
-            Newest Songs
-          </h1>
+          <h1 className="text-white font-semibold text-2xl">Newest Songs</h1>
         </div>
+       <PageContent songs={songs}/>
       </div>
     </div>
   );
