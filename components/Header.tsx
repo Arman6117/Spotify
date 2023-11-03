@@ -95,10 +95,10 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
          items-center
         "
         >
-          <button className="p-2 bg-white rounded-full items-center justify-center hover:opacity-75 transition flex">
+          <button onClick={()=> router.push('/')} className="p-2 bg-white rounded-full items-center justify-center hover:opacity-75 transition flex">
             <HiHome className="text-black" size={20} />
           </button>
-          <button className="p-2 bg-white rounded-full items-center justify-center hover:opacity-75 transition flex">
+          <button onClick={()=> router.push('/search')} className="p-2 bg-white rounded-full items-center justify-center hover:opacity-75 transition flex">
             <BiSearch className="text-black" size={20} />
           </button>
         </div>
@@ -110,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
               </Button>
               <Button
                 className="bg-white "
-                onClick={() => router.push("/account")}
+                // onClick={() => router.push("/account")}
               >
                 <FaUserAlt/>
               </Button>
