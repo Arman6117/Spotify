@@ -5,7 +5,7 @@ import getLikeSongs from "@/actions/getLikedSongs";
 import LikedContent from "./components/LikedContent";
 
 
-export const revaluate = 0;
+ const revaluate = 0;
 
 const page = async () => {
   const songs = await getLikeSongs();
